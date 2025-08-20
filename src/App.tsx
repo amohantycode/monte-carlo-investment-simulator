@@ -1,6 +1,6 @@
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, BarChart, Bar } from "recharts";
-import { Download, Play, RefreshCw, TrendingUp, PiggyBank, AlertTriangle, Target } from "lucide-react";
+import { Play, RefreshCw, TrendingUp, PiggyBank, AlertTriangle, Target } from "lucide-react";
 
 // Simple seeded RNG (Mulberry32)
 function mulberry32(seed: number) {
@@ -125,7 +125,7 @@ export default function MonteCarloSimulator() {
   const pathData = useMemo(() => {
     if (!results) return [];
     
-    const { simulations, stats } = results;
+    const { simulations } = results;
     const years = Array.from({ length: params.years + 1 }, (_, i) => i);
     
     return years.map(year => {
